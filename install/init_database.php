@@ -52,7 +52,47 @@ try {
             VALUES ('admin', 'admin@golani.idf.gov.il', ?, 9, 'September_2025', 50000.00, 10000, 10)
         ");
         $admin_stmt->execute([$admin_password]);
+        
+        // Create bank account for admin
+        $admin_id = $db->lastInsertId();
+        $admin_bank = $db->prepare("INSERT INTO bank_accounts (player_id, balance, savings) VALUES (?, 25000.00, 15000.00)");
+        $admin_bank->execute([$admin_id]);
+        
         echo "✅ Admin account created (username: admin, password: admin123)\n";
+    }
+    
+    // Create test account if it doesn't exist
+    $test_check = $db->prepare("SELECT COUNT(*) as count FROM players WHERE username = 'test'");
+    $test_check->execute();
+    $test_exists = $test_check->fetch()['count'] > 0;
+    
+    if (!$test_exists) {
+        $test_password = password_hash('test123', PASSWORD_DEFAULT);
+        $test_stmt = $db->prepare("
+            INSERT INTO players (username, email, password_hash, rank_id, recruitment_cycle, money, experience, level) 
+            VALUES ('test', 'test@golani.idf.gov.il', ?, 3, 'October_2025', 5000.00, 350, 3)
+        ");
+        $test_stmt->execute([$test_password]);
+        
+        // Create bank account for test user
+        $test_id = $db->lastInsertId();
+        $test_bank = $db->prepare("INSERT INTO bank_accounts (player_id, balance, savings) VALUES (?, 1500.00, 500.00)");
+        $test_bank->execute([$test_id]);
+        
+        // Give test user some achievements
+        $test_achievement1 = $db->prepare("
+            INSERT INTO player_achievements (player_id, achievement_id) 
+            VALUES (?, (SELECT id FROM achievements WHERE name = 'חייל חדש' LIMIT 1))
+        ");
+        $test_achievement1->execute([$test_id]);
+        
+        $test_achievement2 = $db->prepare("
+            INSERT INTO player_achievements (player_id, achievement_id) 
+            VALUES (?, (SELECT id FROM achievements WHERE name = 'משימה ראשונה' LIMIT 1))
+        ");
+        $test_achievement2->execute([$test_id]);
+        
+        echo "✅ Test account created (username: test, password: test123)\n";
     }
     
     echo "\n🎮 Database initialization completed successfully!\n";
