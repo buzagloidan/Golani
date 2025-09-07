@@ -34,7 +34,7 @@ $playerName = $_SESSION['player_name'] ?? '';
                     <?php else: ?>
                         <span class="welcome-text">שלום, <?php echo htmlspecialchars($playerName); ?></span>
                         <a href="game.php" class="nav-link game-btn">למשחק</a>
-                        <a href="logout.php" class="nav-link">יציאה</a>
+                        <a href="auth/logout.php" class="nav-link">יציאה</a>
                     <?php endif; ?>
                 </div>
             </div>
