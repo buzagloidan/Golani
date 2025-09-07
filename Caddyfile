@@ -1,0 +1,10 @@
+{
+	frankenphp
+	auto_https off
+}
+
+:{$PORT:8080} {
+	root * /app
+	php_fastcgi unix//var/run/php/php-fpm.sock
+	file_server
+}

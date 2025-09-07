@@ -1,0 +1,8 @@
+[build]
+builder = "nixpacks"
+
+[deploy]
+startCommand = "chmod +x start.sh && ./start.sh"
+healthcheckPath = "/"
+healthcheckTimeout = 300
+restartPolicyType = "always"
