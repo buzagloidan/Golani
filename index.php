@@ -21,7 +21,7 @@ $playerName = $_SESSION['player_name'] ?? '';
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <img src="assets/images/golani-logo.png" alt="גדוד גולני" class="logo-img">
+                    <!-- <img src="assets/images/golani-logo.png" alt="גדוד גולני" class="logo-img"> -->
                     <h1 class="logo-text">גולני</h1>
                 </div>
                 
@@ -95,7 +95,7 @@ $playerName = $_SESSION['player_name'] ?? '';
                 </div>
                 
                 <div class="hero-image">
-                    <img src="assets/images/soldier-hero.png" alt="חייל גולני" class="hero-img">
+                    <!-- <img src="assets/images/soldier-hero.png" alt="חייל גולני" class="hero-img"> -->
                 </div>
             </div>
         </section>
