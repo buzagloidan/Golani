@@ -2,7 +2,7 @@
 builder = "nixpacks"
 
 [deploy]
-startCommand = "frankenphp run --config /assets/Caddyfile"
+startCommand = "frankenphp run --config /app/Caddyfile"
 healthcheckPath = "/"
 healthcheckTimeout = 300
 restartPolicyType = "always"
