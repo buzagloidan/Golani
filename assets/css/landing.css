@@ -1,0 +1,513 @@
+/* Landing Page Specific Styles */
+
+/* Hero Section */
+.hero {
+    min-height: 90vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/golani-base-bg.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+    z-index: -2;
+}
+
+.hero-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(26, 26, 46, 0.9) 0%,
+        rgba(139, 69, 19, 0.3) 50%,
+        rgba(47, 79, 47, 0.8) 100%
+    );
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        ellipse at center,
+        transparent 0%,
+        rgba(0,0,0,0.4) 70%,
+        rgba(0,0,0,0.8) 100%
+    );
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hero-text {
+    animation: fadeInRight 1s ease 0.3s both;
+}
+
+.hero-title {
+    margin-bottom: 30px;
+}
+
+.title-main {
+    display: block;
+    font-size: 4rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--golani-accent), #fff, var(--golani-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+.title-sub {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin-right: 20px;
+}
+
+.hero-description {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    color: var(--text-secondary);
+    max-width: 600px;
+}
+
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.hero-stats .stat-item {
+    background: rgba(26, 26, 46, 0.8);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--golani-primary);
+    padding: 25px 20px;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-stats .stat-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(139, 69, 19, 0.2),
+        transparent
+    );
+    transition: right 1s ease;
+}
+
+.hero-stats .stat-item:hover::before {
+    right: 100%;
+}
+
+.hero-stats .stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(139, 69, 19, 0.3);
+    border-color: var(--golani-accent);
+}
+
+.hero-stats .stat-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--golani-accent), #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.hero-stats .stat-label {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.hero-actions .btn {
+    animation: pulse 2s infinite;
+}
+
+.hero-actions .btn:hover {
+    animation: none;
+}
+
+.hero-image {
+    position: relative;
+    animation: fadeInUp 1s ease 0.6s both;
+}
+
+.hero-img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    border: 3px solid var(--golani-accent);
+    transition: all 0.3s ease;
+}
+
+.hero-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 30px 80px rgba(255, 215, 0, 0.3);
+}
+
+/* About Section */
+.about-section {
+    background: linear-gradient(
+        135deg,
+        rgba(26, 26, 46, 0.95) 0%,
+        rgba(47, 79, 47, 0.3) 50%,
+        rgba(26, 26, 46, 0.95) 100%
+    );
+    position: relative;
+}
+
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/military-pattern.png') repeat;
+    opacity: 0.05;
+    z-index: -1;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-card {
+    background: rgba(26, 26, 46, 0.9);
+    padding: 40px 30px;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.6s ease both;
+}
+
+.about-card:nth-child(1) { animation-delay: 0.1s; }
+.about-card:nth-child(2) { animation-delay: 0.2s; }
+.about-card:nth-child(3) { animation-delay: 0.3s; }
+.about-card:nth-child(4) { animation-delay: 0.4s; }
+.about-card:nth-child(5) { animation-delay: 0.5s; }
+.about-card:nth-child(6) { animation-delay: 0.6s; }
+
+.about-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--golani-primary), var(--golani-secondary));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+.about-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--golani-accent);
+    box-shadow: 0 20px 40px rgba(139, 69, 19, 0.3);
+}
+
+.about-card:hover::before {
+    opacity: 0.1;
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-align: center;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.about-card:hover .card-icon {
+    animation: none;
+    transform: scale(1.1);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--golani-accent);
+    text-align: center;
+}
+
+.card-description {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* Features Section */
+.features-section {
+    background: linear-gradient(
+        to bottom,
+        var(--golani-dark) 0%,
+        rgba(47, 79, 47, 0.2) 50%,
+        var(--golani-dark) 100%
+    );
+    position: relative;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.feature-item {
+    background: rgba(26, 26, 46, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    border-right: 4px solid var(--golani-primary);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.6s ease both;
+}
+
+.feature-item:nth-child(odd) { animation-delay: 0.1s; }
+.feature-item:nth-child(even) { animation-delay: 0.2s; }
+
+.feature-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 0;
+    background: var(--golani-accent);
+    transition: height 0.4s ease;
+}
+
+.feature-item:hover {
+    transform: translateX(10px);
+    border-right-color: var(--golani-accent);
+    box-shadow: -10px 10px 30px rgba(139, 69, 19, 0.2);
+}
+
+.feature-item:hover::before {
+    height: 100%;
+}
+
+.feature-item h3 {
+    color: var(--golani-accent);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.feature-item p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive Adjustments for Landing */
+@media (max-width: 968px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .hero-text {
+        order: 2;
+    }
+    
+    .hero-image {
+        order: 1;
+    }
+    
+    .title-main {
+        font-size: 3rem;
+    }
+    
+    .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 80vh;
+        padding: 40px 0;
+    }
+    
+    .title-main {
+        font-size: 2.5rem;
+    }
+    
+    .title-sub {
+        font-size: 1.4rem;
+    }
+    
+    .hero-description {
+        font-size: 1.1rem;
+    }
+    
+    .hero-stats {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .hero-actions {
+        justify-content: center;
+    }
+    
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content {
+        padding: 0 15px;
+    }
+    
+    .about-card {
+        padding: 30px 20px;
+    }
+    
+    .feature-item {
+        padding: 25px 20px;
+    }
+    
+    .hero-actions .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Loading Animation */
+.loading-dots {
+    display: inline-block;
+}
+
+.loading-dots::after {
+    content: '';
+    animation: loadingDots 1.5s steps(4, end) infinite;
+}
+
+@keyframes loadingDots {
+    0% { content: ''; }
+    25% { content: '.'; }
+    50% { content: '..'; }
+    75% { content: '...'; }
+    100% { content: ''; }
+}
+
+/* Special Effects */
+.glow-effect {
+    box-shadow: 
+        0 0 20px rgba(255, 215, 0, 0.3),
+        0 0 40px rgba(255, 215, 0, 0.2),
+        0 0 60px rgba(255, 215, 0, 0.1);
+}
+
+.military-border {
+    border: 3px solid;
+    border-image: linear-gradient(45deg, var(--golani-primary), var(--golani-accent), var(--golani-secondary)) 1;
+}
+
+/* Scroll Animations */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease;
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Counter Animation */
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.counter {
+    animation: countUp 0.5s ease;
+}
